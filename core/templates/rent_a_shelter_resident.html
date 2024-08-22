@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block title %} - Rent a Shelter Resident{% endblock %}
+{% block content %}
+{% load static %}   
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-2 text-white mb-4">Rent a Shelter Resident</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="/" onclick="showPreloader(event)" class="text-secondary">Home</a></li>
+                    <li class="breadcrumb-item text-white" aria-current="page">Rent a Shelter Resident</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="bg-light container-fluid">
+        <br>
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-secondary border-2 d-inline-block p-2 title-border-radius">Rent a Shelter Resident</h4>
+        </div>
+        <div style="text-align: center;">
+            <a data-fancybox href="{% static "img/rent_a_shelter_resident.jpg" %}"><img src="{% static "img/rent_a_shelter_resident.jpg" %}" width="320px" height="320px"></a>
+        </div>
+        <p class="my-3">With so many rescues which have now been safely rehabilitated, we are running a programme which allows schools and (vetted) homes to rent one of our lovely creatures for a period of time. This programme includes our bearded dragons, African Land snails, one of our axolotl's, ball python or two of our our ever growing resident Guinea pigs. All will arrive with their own enclosure, bedding and food. We would come back weekly to check on the welfare of each animal, snakes would be fed by us but the African Land snails, beardies and Guinea pigs would be fed by their temporary owners, this gives children the chance to look after them, building interests and it's good for parents to get an insight as to whether the children's interest wains!</p>
+        <p class="my-3">Contact <a href="mailto:{{dragon_shelter.email}}">{{dragon_shelter.email}}</a> for more information on how to rent a shelter resident.</p>
+        <br><br>
+    </div>
+
+
+{% endblock %}

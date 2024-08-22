@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+{% block title %} - Reptile Encounters, Kids Parties, and School Programs in Couldson, UK. Book a Reptile Encounter/Party!{% endblock %}
+{% block content %}
+{% load static %}   
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-2 text-white mb-4">Book a Reptile Encounter/Party</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="/" onclick="showPreloader(event)" class="text-secondary">Home</a></li>
+                    <li class="breadcrumb-item text-white" aria-current="page">Book a Reptile Encounter/Party</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <br>
+
+    <!-- Book an Encounter Start -->
+    <div class="bg-light container-fluid">
+    <div class="container bg-light rounded">
+        <br>
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-secondary border-2 d-inline-block p-2 title-border-radius">Book a Reptile Encounter/Party</h4>
+        </div>
+        <p>Experience the wonder of our rescued creatures up close at both our Coulsdon Shelter and Brixton Hub. Whether you're interested in an educational visit or a unique animal encounter, we're here to make it memorable.</p>
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-secondary border-2 d-inline-block p-2 title-border-radius">Kids' Parties and School Programs</h4>
+        </div>
+        <p>We offer exciting options for kids' parties and school programs, where children can learn about and interact with our fascinating reptiles and animals. Contact us to plan an unforgettable experience.</p>
+
+        <form id="bookAnEncounterForm">
+            {% csrf_token %}
+            <input type="text" name="name" class="w-100 form-control py-3 mb-5 border-primary" placeholder="Your Name" required>
+            <input type="email" name="email" class="w-100 form-control py-3 mb-5 border-primary" placeholder="Enter Your Email" required>
+            <input minlength="11" maxlength="15" type="tel" name="phone_number" class="w-100 form-control py-3 mb-5 border-primary" placeholder="Enter Your Phone Number" required>
+            <textarea class="w-100 form-control mb-5 border-primary" rows="8" name="event_description" cols="10" placeholder="Event Description" required></textarea>
+            <label for="preferred_date_of_event">Preferred Date of Event: </label><br><br>
+            <input type="date" name="preferred_date_of_event" id="preferred_date_of_event" class="w-100 form-control py-3 mb-5 border-primary" required>
+            <button class="w-100 btn py-3 text-white btn-secondary border-3 border-primary" type="submit">Submit</button>
+        </form>
+
+        <br>
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-secondary border-2 d-inline-block p-2 title-border-radius">Booking Enquiries</h4>
+        </div>
+        <div class="col-lg-4 wow fadeIn mx-auto" data-wow-delay="0.3s">
+            <a href="mailto:{{dragon_shelter.booking_enquiries_email}}">
+                <div class="d-flex w-100 border border-secondary p-4 rounded bg-white">
+                    <i class="fas fa-envelope fa-2x text-secondary me-4"></i>
+                    <div>
+                        <h4 class="text-primary">Mail Us</h4>
+                        <p class="mb-2">{{dragon_shelter.booking_enquiries_email}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <br>
+    </div>
+    </div>
+    <br>
+    <!-- Book an Encounter End -->
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success!</h5>
+                    <button type="button" class="btn-close btn-secondary border-3 border-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Thank you for submitting your request we will get back to you shortly.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary border-3 border-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Error!</h5>
+                <button type="button" class="btn-close btn-secondary border-3 border-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body error-modal-body">
+                Oops! An error occured, request wasn't sent. Please try again.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary border-3 border-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

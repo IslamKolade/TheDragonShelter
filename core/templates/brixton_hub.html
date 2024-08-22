@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block title %} - Brixton Hub{% endblock %}  
+{% block content %}
+{% load static %} 
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-2 text-white mb-4">Brixton Hub</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="/" onclick="showPreloader(event)" class="text-secondary">Home</a></li>
+                    <li class="breadcrumb-item text-white" aria-current="page">Brixton Hub</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="bg-light container-fluid">
+        <br>
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-secondary border-2 d-inline-block p-2 title-border-radius">The Brixton Hub</h4>
+        </div>
+        <div style="text-align: center;">
+            <a data-fancybox href="{% static "img/brixton-hub.jpeg" %}"><img src="{% static "img/brixton-hub.jpeg" %}" width="320px" height="320px"></a>
+        </div>
+        <br>
+        <div class="col-lg-5 wow mx-auto fadeIn" data-wow-delay="0.1s">
+            <a data-fancybox href="{% static "video/BrixtonHub.mp4" %}">
+                <div class="video border">
+                        <button class="btn btn-play">
+                            <span></span>
+                        </button>
+                </div>
+            </a>
+        </div>
+        <p class="my-3">Here we have a base for inner London parties, we also run Weekly playgroups, Youth Club and homeschooler groups.</p>
+        <p class="my-3">Contact <a href="mailto:{{dragon_shelter.email}}">{{dragon_shelter.email}}</a> for more information or book any of the above, directly through our <a target="_blank" href="https://bookwhen.com/thedragonshelter">booking system</a>.</p>
+        <br><br>
+    </div>
+
+
+{% endblock %}
